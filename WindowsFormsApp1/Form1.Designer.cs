@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace SimpleCalculator
 {
@@ -40,34 +39,6 @@ namespace SimpleCalculator
             this.labelCurrentOperation.Name = "labelCurrentOperation";
             this.labelCurrentOperation.Size = new System.Drawing.Size(0, 29);
             this.labelCurrentOperation.TabIndex = 1;
-
-            // Add buttons
-            int buttonWidth = 65;
-            int buttonHeight = 45;
-            int padding = 10;
-            string[] buttonTexts = { "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "C", "=", "+" };
-
-            for (int i = 0; i < buttonTexts.Length; i++)
-            {
-                Button button = new Button();
-                button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-                button.Text = buttonTexts[i];
-                button.Width = buttonWidth;
-                button.Height = buttonHeight;
-                button.Left = 12 + (i % 4) * (buttonWidth + padding);
-                button.Top = 100 + (i / 4) * (buttonHeight + padding);
-
-                if (buttonTexts[i] == "C")
-                    button.Click += new System.EventHandler(this.button_Clear_Click);
-                else if (buttonTexts[i] == "=")
-                    button.Click += new System.EventHandler(this.button_Equal_Click);
-                else if (new[] { "+", "-", "*", "/" }.Contains(buttonTexts[i]))
-                    button.Click += new System.EventHandler(this.operator_Click);
-                else
-                    button.Click += new System.EventHandler(this.button_Click);
-
-                this.Controls.Add(button);
-            }
 
             // Form settings
             this.ClientSize = new System.Drawing.Size(300, 400);
